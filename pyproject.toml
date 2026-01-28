@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "code-covered"
+version = "0.2.0"
+description = "Find coverage gaps and generate the tests you're missing"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "mcp-tool-shop", email = "64996768+mcp-tool-shop@users.noreply.github.com"}
+]
+keywords = ["coverage", "testing", "pytest", "test-generation", "code-coverage"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Quality Assurance",
+]
+
+dependencies = [
+    "coverage>=7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+    "pytest-cov>=4.0",
+]
+embeddings = [
+    "numpy>=1.24",
+    "hnswlib>=0.7",
+]
+
+[project.urls]
+Homepage = "https://github.com/mcp-tool-shop/code-covered"
+Repository = "https://github.com/mcp-tool-shop/code-covered"
+Issues = "https://github.com/mcp-tool-shop/code-covered/issues"
+
+[project.scripts]
+code-covered = "cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["analyzer*", "code_covered*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["analyzer"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
