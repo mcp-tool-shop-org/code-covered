@@ -8,16 +8,14 @@ Accepts coverage.json as inline JSON or artifact reference.
 from __future__ import annotations
 
 import json
-import tempfile
-from io import StringIO
+from collections.abc import Callable
 from pathlib import Path
-from typing import Any, Callable, Optional
+from typing import Any
 
 # Import from the engine (sibling package)
 from analyzer.coverage_gaps import (
-    CoverageParser,
-    GapSuggestion,
     GapAnalyzer,
+    GapSuggestion,
     GapSuggestionGenerator,
 )
 
@@ -29,7 +27,7 @@ PRIORITY_ORDER = ["critical", "high", "medium", "low"]
 def handle(
     request: dict[str, Any],
     *,
-    artifact_resolver: Optional[Callable[[str], bytes]] = None,
+    artifact_resolver: Callable[[str], bytes] | None = None,
 ) -> dict[str, Any]:
     """
     MCP tool handler for code_covered.gaps.
@@ -77,7 +75,7 @@ def handle(
 
     # 4. Count by priority (after filter, before limit)
     total_suggestions = len(suggestions)
-    by_priority = {p: 0 for p in PRIORITY_ORDER}
+    by_priority = dict.fromkeys(PRIORITY_ORDER, 0)
     for s in suggestions:
         if s.priority in by_priority:
             by_priority[s.priority] += 1
@@ -117,7 +115,7 @@ def handle(
 def _load_coverage(
     coverage: Any,
     *,
-    artifact_resolver: Optional[Callable[[str], bytes]] = None,
+    artifact_resolver: Callable[[str], bytes] | None = None,
 ) -> dict[str, Any]:
     """
     Load coverage data from inline dict or artifact reference.
@@ -151,7 +149,7 @@ def _load_coverage(
                 "artifact reference requires either artifact_resolver or locator"
             )
 
-        with open(locator, "r", encoding="utf-8") as f:
+        with open(locator, encoding="utf-8") as f:
             return json.load(f)
 
     # Otherwise treat as inline coverage data
@@ -166,7 +164,7 @@ def _load_coverage(
 
 def _analyze_coverage_data(
     coverage_data: dict[str, Any],
-    repo_root: Optional[str] = None,
+    repo_root: str | None = None,
 ) -> tuple[list[GapSuggestion], list[str]]:
     """
     Analyze coverage data and return suggestions.
@@ -199,7 +197,7 @@ def _analyze_coverage_data(
 
         # Try to read source file
         try:
-            with open(actual_path, "r", encoding="utf-8", errors="replace") as f:
+            with open(actual_path, encoding="utf-8", errors="replace") as f:
                 source_code = f.read()
         except FileNotFoundError:
             warnings.append(f"Source file not found: {actual_path}")

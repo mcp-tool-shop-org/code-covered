@@ -34,7 +34,6 @@ import logging
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Optional
 
 logger = logging.getLogger(__name__)
 
@@ -46,11 +45,11 @@ class UncoveredBlock:
     file_path: str
     start_line: int
     end_line: int
-    function_name: Optional[str] = None
-    class_name: Optional[str] = None
+    function_name: str | None = None
+    class_name: str | None = None
     code_snippet: str = ""
     block_type: str = "unknown"  # branch, function, error_handler, etc.
-    condition: Optional[str] = None  # The condition that wasn't tested
+    condition: str | None = None  # The condition that wasn't tested
 
 
 @dataclass
@@ -130,7 +129,7 @@ class CoverageParser:
             FileNotFoundError: If json_path doesn't exist
             json.JSONDecodeError: If file is not valid JSON
         """
-        with open(json_path, "r", encoding="utf-8") as f:
+        with open(json_path, encoding="utf-8") as f:
             data = json.load(f)
 
         files = {}
@@ -181,8 +180,8 @@ class GapAnalyzer(ast.NodeVisitor):
         self.uncovered_blocks: list[UncoveredBlock] = []
 
         # Context tracking
-        self._current_class: Optional[str] = None
-        self._current_function: Optional[str] = None
+        self._current_class: str | None = None
+        self._current_function: str | None = None
         self._current_file: str = ""
         self._seen_blocks: set[tuple[int, int]] = set()  # Avoid duplicates
 
@@ -450,7 +449,7 @@ class GapSuggestionGenerator:
         self,
         block: UncoveredBlock,
         file_path: str,
-    ) -> Optional[GapSuggestion]:
+    ) -> GapSuggestion | None:
         """Create a test suggestion for an uncovered block."""
         test_name = self._generate_test_name(block)
         priority = self._determine_priority(block)
@@ -522,7 +521,7 @@ class GapSuggestionGenerator:
             return self._generic_test_template(func, cls, block)
 
     def _exception_test_template(
-        self, func: str, cls: Optional[str], block: UncoveredBlock
+        self, func: str, cls: str | None, block: UncoveredBlock
     ) -> str:
         """Template for testing exception handlers."""
         exc_type = "Exception"
@@ -556,7 +555,7 @@ class GapSuggestionGenerator:
 '''
 
     def _raise_test_template(
-        self, func: str, cls: Optional[str], block: UncoveredBlock
+        self, func: str, cls: str | None, block: UncoveredBlock
     ) -> str:
         """Template for testing raise statements."""
         exc_type = "Exception"
@@ -589,7 +588,7 @@ class GapSuggestionGenerator:
 '''
 
     def _branch_test_template(
-        self, func: str, cls: Optional[str], block: UncoveredBlock
+        self, func: str, cls: str | None, block: UncoveredBlock
     ) -> str:
         """Template for testing conditional branches."""
         condition = block.condition or "the condition"
@@ -621,7 +620,7 @@ class GapSuggestionGenerator:
 '''
 
     def _generic_test_template(
-        self, func: str, cls: Optional[str], block: UncoveredBlock
+        self, func: str, cls: str | None, block: UncoveredBlock
     ) -> str:
         """Generic test template."""
         if cls:
@@ -717,7 +716,7 @@ class GapSuggestionGenerator:
 
 def find_coverage_gaps(
     coverage_json: str,
-    source_root: Optional[str] = None,
+    source_root: str | None = None,
 ) -> tuple[list[GapSuggestion], list[str]]:
     """
     Main entry point: Find what tests are missing based on coverage.
@@ -752,7 +751,7 @@ def find_coverage_gaps(
 
         # Try to read source file
         try:
-            with open(actual_path, "r", encoding="utf-8", errors="replace") as f:
+            with open(actual_path, encoding="utf-8", errors="replace") as f:
                 source_code = f.read()
         except FileNotFoundError:
             warnings.append(f"Source file not found: {actual_path}")
@@ -803,7 +802,7 @@ def print_coverage_gaps(suggestions: list[GapSuggestion]) -> None:
         if suggestion.setup_hints:
             print(f"   Hints: {', '.join(suggestion.setup_hints)}")
 
-        print(f"\n   Template:")
+        print("\n   Template:")
         for line in suggestion.code_template.splitlines():
             print(f"   {line}")
         print()

@@ -1,18 +1,17 @@
 """Tests for analyzer.coverage_gaps module."""
 
 import json
-import pytest
 from pathlib import Path
-from unittest.mock import patch, mock_open
+
+import pytest
 
 from analyzer.coverage_gaps import (
     CoverageParser,
-    CoverageReport,
     FileCoverage,
     GapAnalyzer,
+    GapSuggestion,
     GapSuggestionGenerator,
     UncoveredBlock,
-    GapSuggestion,
     find_coverage_gaps,
 )
 
@@ -505,7 +504,7 @@ class TestGoldenOutput:
         source_file = fixtures_dir / "sample_validator.py"
 
         # Read the coverage file and patch the paths to use our fixture
-        with open(coverage_file, "r", encoding="utf-8") as f:
+        with open(coverage_file, encoding="utf-8") as f:
             coverage_data = json.load(f)
 
         # Create a temp coverage file with correct paths

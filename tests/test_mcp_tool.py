@@ -2,17 +2,17 @@
 
 import json
 import shutil
-import pytest
 from pathlib import Path
 
+import pytest
+
+from analyzer.coverage_gaps import GapSuggestion
 from mcp_code_covered.tool import (
-    handle,
-    _load_coverage,
     _compute_exit_code,
     _error_response,
-    PRIORITY_SCORE,
+    _load_coverage,
+    handle,
 )
-from analyzer.coverage_gaps import GapSuggestion
 
 FIXTURES_DIR = Path(__file__).parent / "fixtures" / "mcp"
 
