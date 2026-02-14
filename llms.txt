@@ -1,0 +1,37 @@
+# code-covered
+
+> Analyzes coverage gaps and tells you what tests to write.
+
+## Purpose
+Coverage tools say *what* lines are untested. code-covered parses `coverage.json` and your source AST to tell you *which tests to write*, ranked by priority (critical: exception handlers, high: branches, medium: loops, low: other). It generates ready-to-use test stubs.
+
+## Quickstart
+```bash
+pip install code-covered
+pytest --cov=myapp --cov-report=json
+code-covered coverage.json
+```
+
+## Key Commands
+- `code-covered coverage.json` -- show prioritized test suggestions
+- `code-covered coverage.json -v` -- include full test templates
+- `code-covered coverage.json --priority critical` -- filter by priority level
+- `code-covered coverage.json --limit 5` -- cap number of suggestions
+- `code-covered coverage.json -o tests/test_gaps.py` -- write test stubs to file
+- `code-covered coverage.json --source-root ./src` -- set source root for relative paths
+- `code-covered coverage.json --format json` -- JSON output for CI pipelines
+
+## Key API (Python)
+- `find_coverage_gaps("coverage.json")` -> `(suggestions, warnings)`
+- `print_coverage_gaps(suggestions)` -- formatted terminal output
+- Each suggestion has: `test_name`, `priority`, `covers_lines`, `code_template`, `setup_hints`
+
+## Constraints
+- Input must be pytest-cov JSON format (`--cov-report=json`)
+- AST analysis is Python-only
+- Exit code 0 for success (gaps or no gaps), 1 for errors
+- Does not execute tests; only suggests them
+
+## Links
+- Repo: https://github.com/mcp-tool-shop/code-covered
+- PyPI: https://pypi.org/project/code-covered/

@@ -52,6 +52,15 @@ Top suggestions:
 
 ## Installation
 
+### Via Homebrew (macOS/Linux) - Recommended
+
+```bash
+brew tap mcp-tool-shop-org/mcp-tools
+brew install code-covered
+```
+
+### Via Local Development
+
 ```bash
 pip install code-covered
 ```
