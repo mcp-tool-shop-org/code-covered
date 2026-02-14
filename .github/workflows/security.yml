@@ -5,8 +5,10 @@ on:
     - cron: '0 3 * * 1'  # Weekly on Monday at 3am UTC
   push:
     branches: [master, main]
+    paths: ['pyproject.toml']
   pull_request:
     branches: [master, main]
+    paths: ['pyproject.toml']
   workflow_dispatch:
 
 permissions:

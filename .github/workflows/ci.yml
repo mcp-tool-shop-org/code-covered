@@ -3,8 +3,11 @@ name: CI Tests
 on:
   push:
     branches: [master, main, develop]
+    paths: ['pyproject.toml']
   pull_request:
     branches: [master, main, develop]
+    paths: ['pyproject.toml']
+  workflow_dispatch:
 
 permissions:
   contents: read
