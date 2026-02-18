@@ -1,14 +1,21 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mcp-tool-shop/code-covered/main/logo.png" alt="MCP Tool Shop" width="200" />
+</p>
+
 # code-covered
 
 [![CI Tests](https://github.com/mcp-tool-shop/code-covered/actions/workflows/ci.yml/badge.svg)](https://github.com/mcp-tool-shop/code-covered/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/mcp-tool-shop/code-covered/branch/master/graph/badge.svg)](https://codecov.io/gh/mcp-tool-shop/code-covered)
 [![PyPI version](https://img.shields.io/pypi/v/code-covered.svg)](https://pypi.org/project/code-covered/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **Find coverage gaps and suggest what tests to write.**
 
-Coverage tools tell you *what* lines aren't tested. `code-covered` tells you *what tests to write*.
+Part of [MCP Tool Shop](https://mcp-tool-shop.github.io/) -- practical developer tools that stay out of your way.
+
+## Why code-covered?
+
+Coverage tools tell you *what* lines aren't tested. `code-covered` tells you *what tests to write*. It reads your `coverage.json`, walks the AST to understand context (exception handlers, branches, loops), and generates prioritized test stubs you can drop straight into your test suite. Zero runtime dependencies -- just stdlib.
 
 ## The Problem
 
@@ -211,15 +218,15 @@ for s in suggestions:
 
 ## How It Works
 
-1. **Parse coverage.json** - Reads the JSON report from `pytest-cov`
-2. **AST Analysis** - Parses source files to understand code structure
-3. **Context Detection** - Identifies what each uncovered block does:
+1. **Parse coverage.json** -- Reads the JSON report from `pytest-cov`
+2. **AST Analysis** -- Parses source files to understand code structure
+3. **Context Detection** -- Identifies what each uncovered block does:
    - Is it an exception handler?
    - Is it a conditional branch?
    - What function/class is it in?
-4. **Template Generation** - Creates specific test templates based on context
-5. **Prioritization** - Ranks by importance (error paths > branches > other)
+4. **Template Generation** -- Creates specific test templates based on context
+5. **Prioritization** -- Ranks by importance (error paths > branches > other)
 
 ## License
 
-MIT
+MIT -- see [LICENSE](LICENSE) for details.
