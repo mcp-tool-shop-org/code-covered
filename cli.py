@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 
 def cmd_gaps(args):
     """Find coverage gaps and suggest what tests to write."""
-    from analyzer import find_coverage_gaps, print_coverage_gaps, CoverageParser
+    from analyzer import CoverageParser, find_coverage_gaps, print_coverage_gaps
 
     # Suppress logging in JSON mode for clean output
     if args.format == "json":
