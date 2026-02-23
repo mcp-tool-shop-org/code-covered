@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/mcp-tool-shop/code-covered/main/logo.png" alt="MCP Tool Shop" width="200" />
+  <img src="https://raw.githubusercontent.com/mcp-tool-shop-org/code-covered/main/logo.png" alt="MCP Tool Shop" width="200" />
 </p>
 
 # code-covered
 
-[![CI Tests](https://github.com/mcp-tool-shop/code-covered/actions/workflows/ci.yml/badge.svg)](https://github.com/mcp-tool-shop/code-covered/actions/workflows/ci.yml)
+[![CI](https://github.com/mcp-tool-shop-org/code-covered/actions/workflows/ci.yml/badge.svg)](https://github.com/mcp-tool-shop-org/code-covered/actions/workflows/ci.yml)
 [![PyPI version](https://img.shields.io/pypi/v/code-covered.svg)](https://pypi.org/project/code-covered/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -82,7 +82,7 @@ code-covered coverage.json -o tests/test_gaps.py
 
 ```bash
 # Clone the repository
-git clone https://github.com/mcp-tool-shop/code-covered.git
+git clone https://github.com/mcp-tool-shop-org/code-covered.git
 cd code-covered
 
 # Create and activate virtual environment

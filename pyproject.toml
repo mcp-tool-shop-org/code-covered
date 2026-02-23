@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "code-covered"
-version = "0.5.1"
+version = "0.5.2"
 description = "Find coverage gaps and suggest what tests to write"
 readme = "README.md"
 license = "MIT"
@@ -43,9 +43,9 @@ dev = [
 mcp = []
 
 [project.urls]
-Homepage = "https://github.com/mcp-tool-shop/code-covered"
-Repository = "https://github.com/mcp-tool-shop/code-covered"
-Issues = "https://github.com/mcp-tool-shop/code-covered/issues"
+Homepage = "https://github.com/mcp-tool-shop-org/code-covered"
+Repository = "https://github.com/mcp-tool-shop-org/code-covered"
+Issues = "https://github.com/mcp-tool-shop-org/code-covered/issues"
 
 [project.scripts]
 code-covered = "cli:main"
