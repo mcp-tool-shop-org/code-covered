@@ -50,6 +50,9 @@ Issues = "https://github.com/mcp-tool-shop/code-covered/issues"
 [project.scripts]
 code-covered = "cli:main"
 
+[tool.setuptools]
+py-modules = ["cli"]
+
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["analyzer*", "mcp_code_covered*"]
