@@ -13,15 +13,15 @@
   <a href="https://mcp-tool-shop-org.github.io/code-covered/"><img src="https://img.shields.io/badge/Landing_Page-live-blue" alt="Landing Page"></a>
 </p>
 
-**Find coverage gaps and suggest what tests to write.**
+**Identifique las áreas sin cobertura y sugiera qué pruebas escribir.**
 
-Part of [MCP Tool Shop](https://mcp-tool-shop.github.io/) -- practical developer tools that stay out of your way.
+Parte de [MCP Tool Shop](https://mcp-tool-shop.github.io/) – herramientas prácticas para desarrolladores que no interfieren en su trabajo.
 
-## Why code-covered?
+## ¿Por qué usar `code-covered`?
 
-Coverage tools tell you *what* lines aren't tested. `code-covered` tells you *what tests to write*. It reads your `coverage.json`, walks the AST to understand context (exception handlers, branches, loops), and generates prioritized test stubs you can drop straight into your test suite. Zero runtime dependencies -- just stdlib.
+Las herramientas de cobertura le indican *qué* líneas no están probadas. `code-covered` le indica *qué pruebas debe escribir*. Lee su archivo `coverage.json`, analiza el árbol de sintaxis (AST) para comprender el contexto (controladores de excepciones, ramas, bucles) y genera pruebas preliminares priorizadas que puede incluir directamente en su conjunto de pruebas. No tiene dependencias de tiempo de ejecución, solo utiliza la biblioteca estándar.
 
-## The Problem
+## El problema
 
 ```
 $ pytest --cov=myapp
@@ -30,9 +30,9 @@ Name                 Stmts   Miss  Cover
 myapp/validator.py      47     12    74%
 ```
 
-74% coverage. 12 lines missing. But *which* 12 lines? And what tests would cover them?
+74% de cobertura. 12 líneas sin probar. Pero, ¿*cuáles* son esas 12 líneas? ¿Y qué pruebas las cubrirían?
 
-## The Solution
+## La solución
 
 ```
 $ code-covered coverage.json
@@ -61,15 +61,15 @@ Top suggestions:
        In process() lines 52-55 - when config.strict is True
 ```
 
-## Installation
+## Instalación
 
 ```bash
 pip install code-covered
 ```
 
-## Quick Start
+## Inicio rápido
 
-### For Users
+### Para usuarios
 
 ```bash
 # 1. Run your tests with coverage JSON output
@@ -82,7 +82,7 @@ code-covered coverage.json
 code-covered coverage.json -o tests/test_gaps.py
 ```
 
-### For Developers
+### Para desarrolladores
 
 ```bash
 # Clone the repository
@@ -109,20 +109,20 @@ ruff check analyzer mcp_code_covered cli.py tests
 pyright analyzer mcp_code_covered cli.py tests
 ```
 
-## Features
+## Características
 
-### Priority Levels
+### Niveles de prioridad
 
-| Priority | What it means | Example |
+| Prioridad | Lo que significa | Ejemplo |
 |----------|---------------|---------|
-| **Critical** | Exception handlers, raise statements | `except ValueError:` never triggered |
-| **High** | Conditional branches | `if x > 0:` branch never taken |
-| **Medium** | Function bodies, loops | Loop body never entered |
-| **Low** | Other uncovered code | Module-level statements |
+| **Critical** | Controladores de excepciones, sentencias `raise` | `except ValueError:` nunca se activa |
+| **High** | Ramas condicionales | La rama `if x > 0:` nunca se ejecuta |
+| **Medium** | Cuerpos de funciones, bucles | El cuerpo del bucle nunca se ejecuta |
+| **Low** | Otro código sin cubrir | Sentencias a nivel de módulo |
 
-### Test Templates
+### Plantillas de pruebas
 
-Each suggestion includes a ready-to-use test template:
+Cada sugerencia incluye una plantilla de prueba lista para usar:
 
 ```python
 def test_validate_input_handles_exception():
@@ -137,15 +137,15 @@ def test_validate_input_handles_exception():
     # TODO: Add assertions
 ```
 
-### Setup Hints
+### Sugerencias de configuración
 
-Detects common patterns and suggests what to mock:
+Detecta patrones comunes y sugiere qué simular (mock):
 
 ```
 Hints: Mock HTTP requests with responses or httpx, Use @pytest.mark.asyncio decorator
 ```
 
-## CLI Reference
+## Referencia de la interfaz de línea de comandos (CLI)
 
 ```bash
 # Basic usage
@@ -170,16 +170,16 @@ code-covered coverage.json --source-root ./src
 code-covered coverage.json --format json
 ```
 
-### Exit Codes
+### Códigos de salida
 
-| Code | Meaning |
+| Code | Significado |
 |------|---------|
-| 0 | Success (gaps found or no gaps) |
-| 1 | Error (file not found, parse error) |
+| 0 | Éxito (se encontraron lagunas o no se encontraron lagunas) |
+| 1 | Error (archivo no encontrado, error de análisis) |
 
-### JSON Output
+### Salida JSON
 
-Use `--format json` for CI integration:
+Utilice `--format json` para la integración en sistemas de integración continua (CI):
 
 ```json
 {
@@ -197,7 +197,7 @@ Use `--format json` for CI integration:
 }
 ```
 
-## Python API
+## API de Python
 
 ```python
 from analyzer import find_coverage_gaps, print_coverage_gaps
@@ -215,17 +215,17 @@ for s in suggestions:
     print(f"  Template:\n{s.code_template}")
 ```
 
-## How It Works
+## Cómo funciona
 
-1. **Parse coverage.json** -- Reads the JSON report from `pytest-cov`
-2. **AST Analysis** -- Parses source files to understand code structure
-3. **Context Detection** -- Identifies what each uncovered block does:
-   - Is it an exception handler?
-   - Is it a conditional branch?
-   - What function/class is it in?
-4. **Template Generation** -- Creates specific test templates based on context
-5. **Prioritization** -- Ranks by importance (error paths > branches > other)
+1. **Análisis de `coverage.json`**: Lee el informe JSON de `pytest-cov`.
+2. **Análisis del AST**: Analiza los archivos de código fuente para comprender la estructura del código.
+3. **Detección de contexto**: Identifica qué hace cada bloque sin cubrir:
+- ¿Es un controlador de excepciones?
+- ¿Es una rama condicional?
+- ¿En qué función/clase se encuentra?
+4. **Generación de plantillas**: Crea plantillas de prueba específicas basadas en el contexto.
+5. **Priorización**: Clasifica por importancia (rutas de error > ramas > otros).
 
-## License
+## Licencia
 
-MIT -- see [LICENSE](LICENSE) for details.
+MIT: consulte [LICENSE](LICENSE) para obtener más detalles.

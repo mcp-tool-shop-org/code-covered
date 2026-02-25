@@ -13,15 +13,15 @@
   <a href="https://mcp-tool-shop-org.github.io/code-covered/"><img src="https://img.shields.io/badge/Landing_Page-live-blue" alt="Landing Page"></a>
 </p>
 
-**Find coverage gaps and suggest what tests to write.**
+**发现代码覆盖率的不足，并建议编写哪些测试用例。**
 
-Part of [MCP Tool Shop](https://mcp-tool-shop.github.io/) -- practical developer tools that stay out of your way.
+它是 [MCP Tool Shop](https://mcp-tool-shop.github.io/) 的一部分，提供实用且不干扰开发的工具。
 
-## Why code-covered?
+## 为什么使用 `code-covered`？
 
-Coverage tools tell you *what* lines aren't tested. `code-covered` tells you *what tests to write*. It reads your `coverage.json`, walks the AST to understand context (exception handlers, branches, loops), and generates prioritized test stubs you can drop straight into your test suite. Zero runtime dependencies -- just stdlib.
+代码覆盖率工具可以告诉你哪些行代码没有被测试。`code-covered` 告诉你*应该编写哪些测试用例*。它读取你的 `coverage.json` 文件，通过分析抽象语法树（AST）来理解代码的上下文（异常处理、分支、循环），并生成优先级排序的测试用例模板，你可以直接将其添加到你的测试套件中。它没有任何运行时依赖，只依赖标准库。
 
-## The Problem
+## 问题
 
 ```
 $ pytest --cov=myapp
@@ -30,9 +30,9 @@ Name                 Stmts   Miss  Cover
 myapp/validator.py      47     12    74%
 ```
 
-74% coverage. 12 lines missing. But *which* 12 lines? And what tests would cover them?
+代码覆盖率达到 74%。有 12 行代码没有被覆盖。但是，是*哪 12 行*代码？以及，需要编写哪些测试用例来覆盖它们？
 
-## The Solution
+## 解决方案
 
 ```
 $ code-covered coverage.json
@@ -61,15 +61,15 @@ Top suggestions:
        In process() lines 52-55 - when config.strict is True
 ```
 
-## Installation
+## 安装
 
 ```bash
 pip install code-covered
 ```
 
-## Quick Start
+## 快速开始
 
-### For Users
+### 面向用户
 
 ```bash
 # 1. Run your tests with coverage JSON output
@@ -82,7 +82,7 @@ code-covered coverage.json
 code-covered coverage.json -o tests/test_gaps.py
 ```
 
-### For Developers
+### 面向开发者
 
 ```bash
 # Clone the repository
@@ -109,20 +109,20 @@ ruff check analyzer mcp_code_covered cli.py tests
 pyright analyzer mcp_code_covered cli.py tests
 ```
 
-## Features
+## 特性
 
-### Priority Levels
+### 优先级级别
 
-| Priority | What it means | Example |
+| 优先级 | 含义 | 示例 |
 |----------|---------------|---------|
-| **Critical** | Exception handlers, raise statements | `except ValueError:` never triggered |
-| **High** | Conditional branches | `if x > 0:` branch never taken |
-| **Medium** | Function bodies, loops | Loop body never entered |
-| **Low** | Other uncovered code | Module-level statements |
+| **Critical** | 异常处理、`raise` 语句 | `except ValueError:` 从未触发 |
+| **High** | 条件分支 | `if x > 0:` 分支从未被执行 |
+| **Medium** | 函数体、循环 | 循环体从未被执行 |
+| **Low** | 其他未覆盖的代码 | 模块级别的语句 |
 
-### Test Templates
+### 测试模板
 
-Each suggestion includes a ready-to-use test template:
+每个建议都包含一个可以直接使用的测试模板：
 
 ```python
 def test_validate_input_handles_exception():
@@ -137,15 +137,15 @@ def test_validate_input_handles_exception():
     # TODO: Add assertions
 ```
 
-### Setup Hints
+### 配置提示
 
-Detects common patterns and suggests what to mock:
+它会检测常见的模式，并建议应该模拟哪些内容：
 
 ```
 Hints: Mock HTTP requests with responses or httpx, Use @pytest.mark.asyncio decorator
 ```
 
-## CLI Reference
+## 命令行参考
 
 ```bash
 # Basic usage
@@ -170,16 +170,16 @@ code-covered coverage.json --source-root ./src
 code-covered coverage.json --format json
 ```
 
-### Exit Codes
+### 退出码
 
-| Code | Meaning |
+| Code | 含义 |
 |------|---------|
-| 0 | Success (gaps found or no gaps) |
-| 1 | Error (file not found, parse error) |
+| 0 | 成功（找到未覆盖的代码或没有未覆盖的代码） |
+| 1 | 错误（文件未找到、解析错误） |
 
-### JSON Output
+### JSON 输出
 
-Use `--format json` for CI integration:
+使用 `--format json` 进行 CI 集成：
 
 ```json
 {
@@ -215,17 +215,17 @@ for s in suggestions:
     print(f"  Template:\n{s.code_template}")
 ```
 
-## How It Works
+## 工作原理
 
-1. **Parse coverage.json** -- Reads the JSON report from `pytest-cov`
-2. **AST Analysis** -- Parses source files to understand code structure
-3. **Context Detection** -- Identifies what each uncovered block does:
-   - Is it an exception handler?
-   - Is it a conditional branch?
-   - What function/class is it in?
-4. **Template Generation** -- Creates specific test templates based on context
-5. **Prioritization** -- Ranks by importance (error paths > branches > other)
+1. **解析 `coverage.json`** -- 读取 `pytest-cov` 生成的 JSON 报告。
+2. **AST 分析** -- 解析源代码文件以理解代码结构。
+3. **上下文检测** -- 识别每个未覆盖的代码块的作用：
+- 它是异常处理吗？
+- 它是条件分支吗？
+- 它位于哪个函数/类中？
+4. **模板生成** -- 根据上下文创建特定的测试模板。
+5. **优先级排序** -- 根据重要性进行排序（错误路径 > 分支 > 其他）。
 
-## License
+## 许可证
 
-MIT -- see [LICENSE](LICENSE) for details.
+MIT -- 详情请参见 [LICENSE](LICENSE)。

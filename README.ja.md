@@ -13,15 +13,15 @@
   <a href="https://mcp-tool-shop-org.github.io/code-covered/"><img src="https://img.shields.io/badge/Landing_Page-live-blue" alt="Landing Page"></a>
 </p>
 
-**Find coverage gaps and suggest what tests to write.**
+**未カバー部分を特定し、どのようなテストを作成すべきかを提案します。**
 
-Part of [MCP Tool Shop](https://mcp-tool-shop.github.io/) -- practical developer tools that stay out of your way.
+[MCP Tool Shop](https://mcp-tool-shop.github.io/) の一部です。これは、開発者の作業を妨げない、実用的な開発ツールです。
 
-## Why code-covered?
+## なぜコードカバレッジが必要なのでしょうか？
 
-Coverage tools tell you *what* lines aren't tested. `code-covered` tells you *what tests to write*. It reads your `coverage.json`, walks the AST to understand context (exception handlers, branches, loops), and generates prioritized test stubs you can drop straight into your test suite. Zero runtime dependencies -- just stdlib.
+カバレッジツールは、どの行がテストされていないかを教えてくれます。`code-covered` は、*どのようなテストを作成すべきか* を教えてくれます。これは、`coverage.json` を読み込み、AST（抽象構文木）を解析してコンテキスト（例外ハンドラ、ブランチ、ループなど）を理解し、テストスイートにそのまま組み込める優先順位付けされたテストの雛形を生成します。実行時の依存関係はゼロです。標準ライブラリのみを使用します。
 
-## The Problem
+## 問題点
 
 ```
 $ pytest --cov=myapp
@@ -30,9 +30,9 @@ Name                 Stmts   Miss  Cover
 myapp/validator.py      47     12    74%
 ```
 
-74% coverage. 12 lines missing. But *which* 12 lines? And what tests would cover them?
+カバレッジが74%。12行が未カバー。しかし、その12行は*具体的にどの行* なのでしょうか？そして、それらをカバーするテストは*どのようなもの* でしょうか？
 
-## The Solution
+## 解決策
 
 ```
 $ code-covered coverage.json
@@ -61,15 +61,15 @@ Top suggestions:
        In process() lines 52-55 - when config.strict is True
 ```
 
-## Installation
+## インストール方法
 
 ```bash
 pip install code-covered
 ```
 
-## Quick Start
+## クイックスタート
 
-### For Users
+### ユーザー向け
 
 ```bash
 # 1. Run your tests with coverage JSON output
@@ -82,7 +82,7 @@ code-covered coverage.json
 code-covered coverage.json -o tests/test_gaps.py
 ```
 
-### For Developers
+### 開発者向け
 
 ```bash
 # Clone the repository
@@ -109,20 +109,20 @@ ruff check analyzer mcp_code_covered cli.py tests
 pyright analyzer mcp_code_covered cli.py tests
 ```
 
-## Features
+## 機能
 
-### Priority Levels
+### 優先度レベル
 
-| Priority | What it means | Example |
+| 優先度 | 意味 | 例 |
 |----------|---------------|---------|
-| **Critical** | Exception handlers, raise statements | `except ValueError:` never triggered |
-| **High** | Conditional branches | `if x > 0:` branch never taken |
-| **Medium** | Function bodies, loops | Loop body never entered |
-| **Low** | Other uncovered code | Module-level statements |
+| **Critical** | 例外ハンドラ、`raise` 文 | `except ValueError:` が一度もトリガーされていない |
+| **High** | 条件分岐 | `if x > 0:` のブランチが一度も実行されていない |
+| **Medium** | 関数本体、ループ | ループ本体が一度も実行されていない |
+| **Low** | その他の未カバーコード | モジュールレベルの文 |
 
-### Test Templates
+### テストテンプレート
 
-Each suggestion includes a ready-to-use test template:
+各提案には、すぐに使用できるテストテンプレートが含まれています。
 
 ```python
 def test_validate_input_handles_exception():
@@ -137,15 +137,15 @@ def test_validate_input_handles_exception():
     # TODO: Add assertions
 ```
 
-### Setup Hints
+### セットアップのヒント
 
-Detects common patterns and suggests what to mock:
+一般的なパターンを検出し、何を作成するかを提案します。
 
 ```
 Hints: Mock HTTP requests with responses or httpx, Use @pytest.mark.asyncio decorator
 ```
 
-## CLI Reference
+## CLI（コマンドラインインターフェース）リファレンス
 
 ```bash
 # Basic usage
@@ -170,16 +170,16 @@ code-covered coverage.json --source-root ./src
 code-covered coverage.json --format json
 ```
 
-### Exit Codes
+### 終了コード
 
-| Code | Meaning |
+| Code | 意味 |
 |------|---------|
-| 0 | Success (gaps found or no gaps) |
-| 1 | Error (file not found, parse error) |
+| 0 | 成功（未カバー部分が見つかった、または未カバー部分がない） |
+| 1 | エラー（ファイルが見つからない、解析エラー） |
 
-### JSON Output
+### JSON出力
 
-Use `--format json` for CI integration:
+CI（継続的インテグレーション）との連携には、`--format json` オプションを使用します。
 
 ```json
 {
@@ -215,17 +215,17 @@ for s in suggestions:
     print(f"  Template:\n{s.code_template}")
 ```
 
-## How It Works
+## 仕組み
 
-1. **Parse coverage.json** -- Reads the JSON report from `pytest-cov`
-2. **AST Analysis** -- Parses source files to understand code structure
-3. **Context Detection** -- Identifies what each uncovered block does:
-   - Is it an exception handler?
-   - Is it a conditional branch?
-   - What function/class is it in?
-4. **Template Generation** -- Creates specific test templates based on context
-5. **Prioritization** -- Ranks by importance (error paths > branches > other)
+1. **`coverage.json` の解析:** `pytest-cov` からの JSON レポートを読み込みます。
+2. **AST 解析:** ソースファイルを解析し、コードの構造を理解します。
+3. **コンテキスト検出:** 未カバーの各ブロックが何をしているかを特定します。
+- 例外ハンドラですか？
+- 条件分岐ですか？
+- どの関数/クラスに含まれていますか？
+4. **テンプレート生成:** コンテキストに基づいて、特定のテストテンプレートを作成します。
+5. **優先順位付け:** 重要度（エラーパス > ブランチ > その他）でランク付けします。
 
-## License
+## ライセンス
 
-MIT -- see [LICENSE](LICENSE) for details.
+MIT -- 詳細については、[LICENSE](LICENSE) を参照してください。
