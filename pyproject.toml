@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "code-covered"
-version = "0.5.2"
+version = "0.5.3"
 description = "Find coverage gaps and suggest what tests to write"
 readme = "README.md"
 license = "MIT"
