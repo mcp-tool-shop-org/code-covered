@@ -8,6 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/mcp-tool-shop-org/code-covered/actions/workflows/ci.yml"><img src="https://github.com/mcp-tool-shop-org/code-covered/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://codecov.io/gh/mcp-tool-shop-org/code-covered"><img src="https://codecov.io/gh/mcp-tool-shop-org/code-covered/branch/main/graph/badge.svg" alt="Codecov"></a>
   <a href="https://pypi.org/project/code-covered/"><img src="https://img.shields.io/pypi/v/code-covered" alt="PyPI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License"></a>
   <a href="https://mcp-tool-shop-org.github.io/code-covered/"><img src="https://img.shields.io/badge/Landing_Page-live-blue" alt="Landing Page"></a>
@@ -226,6 +227,31 @@ for s in suggestions:
 4. **Template Generation** -- Creates specific test templates based on context
 5. **Prioritization** -- Ranks by importance (error paths > branches > other)
 
+## Security & Data Scope
+
+- **Data touched:** reads `coverage.json` (pytest-cov output) and Python source files for AST analysis. All processing is in-memory.
+- **Data NOT touched:** no network requests, no filesystem writes (except explicit `-o` output), no OS credentials, no telemetry, no user data collection.
+- **Permissions required:** read access to coverage report and source files only.
+
+See [SECURITY.md](SECURITY.md) for vulnerability reporting.
+
+## Scorecard
+
+| Category | Score |
+|----------|-------|
+| A. Security | 10/10 |
+| B. Error Handling | 10/10 |
+| C. Operator Docs | 10/10 |
+| D. Shipping Hygiene | 10/10 |
+| E. Identity (soft) | 10/10 |
+| **Overall** | **50/50** |
+
+> Assessed with [`@mcptoolshop/shipcheck`](https://github.com/mcp-tool-shop-org/shipcheck)
+
 ## License
 
 MIT -- see [LICENSE](LICENSE) for details.
+
+---
+
+Built by [MCP Tool Shop](https://mcp-tool-shop.github.io/)
