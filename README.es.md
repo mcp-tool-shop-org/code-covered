@@ -8,6 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/mcp-tool-shop-org/code-covered/actions/workflows/ci.yml"><img src="https://github.com/mcp-tool-shop-org/code-covered/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://codecov.io/gh/mcp-tool-shop-org/code-covered"><img src="https://codecov.io/gh/mcp-tool-shop-org/code-covered/branch/main/graph/badge.svg" alt="Codecov"></a>
   <a href="https://pypi.org/project/code-covered/"><img src="https://img.shields.io/pypi/v/code-covered" alt="PyPI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License"></a>
   <a href="https://mcp-tool-shop-org.github.io/code-covered/"><img src="https://img.shields.io/badge/Landing_Page-live-blue" alt="Landing Page"></a>
@@ -19,7 +20,7 @@ Parte de [MCP Tool Shop](https://mcp-tool-shop.github.io/) – herramientas prá
 
 ## ¿Por qué usar `code-covered`?
 
-Las herramientas de cobertura le indican *qué* líneas no están probadas. `code-covered` le indica *qué pruebas debe escribir*. Lee su archivo `coverage.json`, analiza el árbol de sintaxis (AST) para comprender el contexto (controladores de excepciones, ramas, bucles) y genera pruebas preliminares priorizadas que puede incluir directamente en su conjunto de pruebas. No tiene dependencias de tiempo de ejecución, solo utiliza la biblioteca estándar.
+Las herramientas de cobertura le indican *qué* líneas no se han probado. `code-covered` le indica *qué pruebas debe escribir*. Lee su archivo `coverage.json`, analiza el árbol de sintaxis (AST) para comprender el contexto (controladores de excepciones, ramas, bucles) y genera plantillas de pruebas priorizadas que puede incluir directamente en su conjunto de pruebas. No tiene dependencias de tiempo de ejecución, solo la biblioteca estándar.
 
 ## El problema
 
@@ -30,7 +31,7 @@ Name                 Stmts   Miss  Cover
 myapp/validator.py      47     12    74%
 ```
 
-74% de cobertura. 12 líneas sin probar. Pero, ¿*cuáles* son esas 12 líneas? ¿Y qué pruebas las cubrirían?
+74% de cobertura. 12 líneas sin probar. ¿Pero *cuáles* 12 líneas? ¿Y qué pruebas las cubrirían?
 
 ## La solución
 
@@ -67,7 +68,7 @@ Top suggestions:
 pip install code-covered
 ```
 
-## Inicio rápido
+## Guía rápida
 
 ### Para usuarios
 
@@ -145,7 +146,7 @@ Detecta patrones comunes y sugiere qué simular (mock):
 Hints: Mock HTTP requests with responses or httpx, Use @pytest.mark.asyncio decorator
 ```
 
-## Referencia de la interfaz de línea de comandos (CLI)
+## Referencia de la línea de comandos (CLI)
 
 ```bash
 # Basic usage
@@ -172,14 +173,14 @@ code-covered coverage.json --format json
 
 ### Códigos de salida
 
-| Code | Significado |
+| Código | Significado |
 |------|---------|
-| 0 | Éxito (se encontraron lagunas o no se encontraron lagunas) |
+| 0 | Éxito (se encontraron lagunas o no hay lagunas) |
 | 1 | Error (archivo no encontrado, error de análisis) |
 
 ### Salida JSON
 
-Utilice `--format json` para la integración en sistemas de integración continua (CI):
+Use `--format json` para la integración con CI:
 
 ```json
 {
@@ -223,9 +224,34 @@ for s in suggestions:
 - ¿Es un controlador de excepciones?
 - ¿Es una rama condicional?
 - ¿En qué función/clase se encuentra?
-4. **Generación de plantillas**: Crea plantillas de prueba específicas basadas en el contexto.
+4. **Generación de plantillas**: Crea plantillas de pruebas específicas basadas en el contexto.
 5. **Priorización**: Clasifica por importancia (rutas de error > ramas > otros).
+
+## Seguridad y alcance de los datos
+
+- **Datos accedidos**: Lee `coverage.json` (salida de pytest-cov) y archivos de código fuente de Python para el análisis del AST. Todo el procesamiento se realiza en la memoria.
+- **Datos NO accedidos**: no hay solicitudes de red, no hay escrituras en el sistema de archivos (excepto la salida explícita con `-o`), no hay credenciales del sistema operativo, no hay telemetría, no hay recopilación de datos del usuario.
+- **Permisos requeridos**: solo se requiere acceso de lectura al informe de cobertura y a los archivos de código fuente.
+
+Consulte [SECURITY.md](SECURITY.md) para informar sobre vulnerabilidades.
+
+## Puntuación
+
+| Categoría | Puntuación |
+|----------|-------|
+| A. Seguridad | 10/10 |
+| B. Manejo de errores | 10/10 |
+| C. Documentación para operadores | 10/10 |
+| D. Higiene de implementación | 10/10 |
+| E. Identidad (suave) | 10/10 |
+| **Overall** | **50/50** |
+
+> Evaluado con [`@mcptoolshop/shipcheck`](https://github.com/mcp-tool-shop-org/shipcheck)
 
 ## Licencia
 
 MIT: consulte [LICENSE](LICENSE) para obtener más detalles.
+
+---
+
+Creado por [MCP Tool Shop](https://mcp-tool-shop.github.io/)

@@ -8,18 +8,19 @@
 
 <p align="center">
   <a href="https://github.com/mcp-tool-shop-org/code-covered/actions/workflows/ci.yml"><img src="https://github.com/mcp-tool-shop-org/code-covered/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://codecov.io/gh/mcp-tool-shop-org/code-covered"><img src="https://codecov.io/gh/mcp-tool-shop-org/code-covered/branch/main/graph/badge.svg" alt="Codecov"></a>
   <a href="https://pypi.org/project/code-covered/"><img src="https://img.shields.io/pypi/v/code-covered" alt="PyPI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License"></a>
   <a href="https://mcp-tool-shop-org.github.io/code-covered/"><img src="https://img.shields.io/badge/Landing_Page-live-blue" alt="Landing Page"></a>
 </p>
 
-**未カバー部分を特定し、どのようなテストを作成すべきかを提案します。**
+**未テストの箇所を特定し、どのようなテストを作成すべきかを提案します。**
 
-[MCP Tool Shop](https://mcp-tool-shop.github.io/) の一部です。これは、開発者の作業を妨げない、実用的な開発ツールです。
+[MCP Tool Shop](https://mcp-tool-shop.github.io/) の一部。開発者の作業を妨げない、実用的な開発ツールです。
 
 ## なぜコードカバレッジが必要なのでしょうか？
 
-カバレッジツールは、どの行がテストされていないかを教えてくれます。`code-covered` は、*どのようなテストを作成すべきか* を教えてくれます。これは、`coverage.json` を読み込み、AST（抽象構文木）を解析してコンテキスト（例外ハンドラ、ブランチ、ループなど）を理解し、テストスイートにそのまま組み込める優先順位付けされたテストの雛形を生成します。実行時の依存関係はゼロです。標準ライブラリのみを使用します。
+コードカバレッジツールは、どの行がテストされていないかを教えてくれます。`code-covered` は、どのようなテストを作成すべきかを教えてくれます。`coverage.json` を読み込み、AST (抽象構文木) を解析してコンテキスト (例外ハンドラ、ブランチ、ループなど) を理解し、すぐにテストスイートに組み込める優先順位付けされたテストの雛形を生成します。実行時の依存関係は一切なく、標準ライブラリのみを使用します。
 
 ## 問題点
 
@@ -30,7 +31,7 @@ Name                 Stmts   Miss  Cover
 myapp/validator.py      47     12    74%
 ```
 
-カバレッジが74%。12行が未カバー。しかし、その12行は*具体的にどの行* なのでしょうか？そして、それらをカバーするテストは*どのようなもの* でしょうか？
+カバレッジが74%。12行が未テスト。しかし、その12行はどれでしょうか？そして、それらをカバーするテストはどのようなものになるでしょうか？
 
 ## 解決策
 
@@ -118,7 +119,7 @@ pyright analyzer mcp_code_covered cli.py tests
 | **Critical** | 例外ハンドラ、`raise` 文 | `except ValueError:` が一度もトリガーされていない |
 | **High** | 条件分岐 | `if x > 0:` のブランチが一度も実行されていない |
 | **Medium** | 関数本体、ループ | ループ本体が一度も実行されていない |
-| **Low** | その他の未カバーコード | モジュールレベルの文 |
+| **Low** | その他の未テストコード | モジュールレベルの文 |
 
 ### テストテンプレート
 
@@ -139,13 +140,13 @@ def test_validate_input_handles_exception():
 
 ### セットアップのヒント
 
-一般的なパターンを検出し、何を作成するかを提案します。
+一般的なパターンを検出し、何をモックすべきかを提案します。
 
 ```
 Hints: Mock HTTP requests with responses or httpx, Use @pytest.mark.asyncio decorator
 ```
 
-## CLI（コマンドラインインターフェース）リファレンス
+## CLI リファレンス
 
 ```bash
 # Basic usage
@@ -172,14 +173,14 @@ code-covered coverage.json --format json
 
 ### 終了コード
 
-| Code | 意味 |
+| コード | 意味 |
 |------|---------|
-| 0 | 成功（未カバー部分が見つかった、または未カバー部分がない） |
-| 1 | エラー（ファイルが見つからない、解析エラー） |
+| 0 | 成功 (未テスト箇所が見つかった、または未テスト箇所がない) |
+| 1 | エラー (ファイルが見つからない、解析エラー) |
 
-### JSON出力
+### JSON 出力
 
-CI（継続的インテグレーション）との連携には、`--format json` オプションを使用します。
+CI 統合には、`--format json` オプションを使用します。
 
 ```json
 {
@@ -218,14 +219,39 @@ for s in suggestions:
 ## 仕組み
 
 1. **`coverage.json` の解析:** `pytest-cov` からの JSON レポートを読み込みます。
-2. **AST 解析:** ソースファイルを解析し、コードの構造を理解します。
-3. **コンテキスト検出:** 未カバーの各ブロックが何をしているかを特定します。
+2. **AST 解析:** ソースファイルを解析して、コードの構造を理解します。
+3. **コンテキストの検出:** 未テストの各ブロックが何をしているかを特定します。
 - 例外ハンドラですか？
 - 条件分岐ですか？
 - どの関数/クラスに含まれていますか？
-4. **テンプレート生成:** コンテキストに基づいて、特定のテストテンプレートを作成します。
-5. **優先順位付け:** 重要度（エラーパス > ブランチ > その他）でランク付けします。
+4. **テンプレートの生成:** コンテキストに基づいて、特定のテストテンプレートを作成します。
+5. **優先順位付け:** 重要度でランク付けします (エラーパス > ブランチ > その他)。
+
+## セキュリティとデータ範囲
+
+- **アクセスするデータ:** `coverage.json` (pytest-cov の出力) と、AST 解析のための Python ソースファイルを読み込みます。すべての処理はメモリ上で行われます。
+- **アクセスしないデータ:** ネットワークリクエスト、ファイルシステムへの書き込み (明示的な `-o` オプションによる出力を除く)、OS の認証情報、テレメトリ、ユーザーデータの収集は行いません。
+- **必要な権限:** カバレッジレポートとソースファイルへの読み取りアクセスのみが必要です。
+
+脆弱性報告については、[SECURITY.md](SECURITY.md) を参照してください。
+
+## スコアカード
+
+| カテゴリ | スコア |
+|----------|-------|
+| A. セキュリティ | 10/10 |
+| B. エラー処理 | 10/10 |
+| C. ドキュメント | 10/10 |
+| D. ソフトウェアの品質 | 10/10 |
+| E. 識別 (ソフト) | 10/10 |
+| **Overall** | **50/50** |
+
+> [`@mcptoolshop/shipcheck`](https://github.com/mcp-tool-shop-org/shipcheck) で評価
 
 ## ライセンス
 
 MIT -- 詳細については、[LICENSE](LICENSE) を参照してください。
+
+---
+
+[MCP Tool Shop](https://mcp-tool-shop.github.io/) が作成
