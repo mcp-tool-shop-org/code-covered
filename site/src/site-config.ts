@@ -17,7 +17,7 @@ export const config: SiteConfig = {
     description:
       "code-covered reads your coverage.json, walks the AST to understand context — exception handlers, branches, loops — then generates prioritized, ready-to-use test stubs. Not just what lines are missing. What tests to write.",
     primaryCta: { href: "#get-started", label: "Get started" },
-    secondaryCta: { href: "#how-it-works", label: "How it works" },
+    secondaryCta: { href: "handbook/", label: "Read the Handbook" },
     previews: [
       {
         label: "Quick start",
