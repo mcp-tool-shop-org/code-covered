@@ -25,12 +25,10 @@ def _write_coverage_json(tmp_path: Path, source_file: Path, missing_lines: list[
 
 def test_main_no_args_prints_help(capsys, monkeypatch):
     monkeypatch.setattr("sys.argv", ["code-covered"])
-    with pytest.raises(SystemExit) as excinfo:
-        cli.main()
-
-    assert excinfo.value.code == 2
-    err = capsys.readouterr().err
-    assert "coverage_json" in err
+    exit_code = cli.main()
+    assert exit_code == 0
+    out = capsys.readouterr().out
+    assert "Quick start" in out
 
 
 def test_missing_coverage_file(capsys, monkeypatch, tmp_path):
@@ -99,3 +97,32 @@ def foo(x):
     contents = output_path.read_text()
     assert "Auto-generated test stubs" in contents
     assert "Wrote" in out
+
+
+def test_version_flag(capsys, monkeypatch):
+    monkeypatch.setattr("sys.argv", ["code-covered", "--version"])
+    exit_code = cli.main()
+    out = capsys.readouterr().out.strip()
+    assert exit_code == 0
+    assert out == "1.0.0"
+
+
+def test_diagnose_text(capsys, monkeypatch):
+    monkeypatch.setattr("sys.argv", ["code-covered", "--diagnose"])
+    exit_code = cli.main()
+    out = capsys.readouterr().out
+    assert exit_code == 0
+    assert "python_version" in out
+    assert "package_version" in out
+
+
+def test_diagnose_json(capsys, monkeypatch):
+    monkeypatch.setattr("sys.argv", ["code-covered", "--diagnose-json"])
+    exit_code = cli.main()
+    out = capsys.readouterr().out
+    assert exit_code == 0
+    data = json.loads(out)
+    assert "ok" in data
+    assert "checks" in data
+    check_names = [c["check"] for c in data["checks"]]
+    assert "python_version" in check_names

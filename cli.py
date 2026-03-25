@@ -149,7 +149,40 @@ def cmd_gaps(args):
     return 0
 
 
-def main():
+def cmd_diagnose():
+    """Check environment health and dependency availability."""
+    from importlib.metadata import version as pkg_version
+
+    checks = []
+
+    # Python version
+    checks.append(("python_version", sys.version.split()[0], True))
+
+    # Package version
+    try:
+        v = pkg_version("code-covered")
+        checks.append(("package_version", v, True))
+    except Exception:
+        checks.append(("package_version", "not installed", False))
+
+    # MCP adapter
+    try:
+        from mcp_code_covered import __version__ as mcp_v
+        checks.append(("mcp_adapter", mcp_v, True))
+    except ImportError:
+        checks.append(("mcp_adapter", "not installed", False))
+
+    # Analyzer module
+    try:
+        from analyzer import CoverageParser  # noqa: F401
+        checks.append(("analyzer", "available", True))
+    except ImportError:
+        checks.append(("analyzer", "not found", False))
+
+    return checks
+
+
+def main(argv=None):
     parser = argparse.ArgumentParser(
         prog="code-covered",
         description="Find coverage gaps and suggest what tests to write",
@@ -157,7 +190,20 @@ def main():
     )
 
     parser.add_argument(
+        "--version", action="store_true",
+        help="Show version and exit"
+    )
+    parser.add_argument(
+        "--diagnose", action="store_true",
+        help="Check environment health"
+    )
+    parser.add_argument(
+        "--diagnose-json", action="store_true",
+        help="Check environment health (JSON output)"
+    )
+    parser.add_argument(
         "coverage_json",
+        nargs="?",
         help="Path to coverage.json (from pytest --cov-report=json)"
     )
     parser.add_argument(
@@ -193,10 +239,36 @@ def main():
         help="Output format (default: text)"
     )
 
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
+
+    if args.version:
+        from importlib.metadata import version as pkg_version
+        try:
+            print(pkg_version("code-covered"))
+        except Exception:
+            print("unknown")
+        return 0
+
+    if args.diagnose or args.diagnose_json:
+        checks = cmd_diagnose()
+        all_ok = all(ok for _, _, ok in checks)
+        if args.diagnose_json:
+            print(json.dumps({
+                "ok": all_ok,
+                "checks": [
+                    {"check": name, "value": val, "ok": ok}
+                    for name, val, ok in checks
+                ],
+            }, indent=2))
+        else:
+            print("code-covered environment:", "OK" if all_ok else "ISSUES FOUND")
+            for name, val, ok in checks:
+                status = "OK" if ok else "FAIL"
+                print(f"  [{status}] {name}: {val}")
+        return 0
 
     # Handle the case where no args are provided
-    if len(sys.argv) == 1:
+    if not args.coverage_json:
         parser.print_help()
         print("\nQuick start:")
         print("  1. Run tests with coverage:")
