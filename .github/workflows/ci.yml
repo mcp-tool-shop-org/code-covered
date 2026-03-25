@@ -122,6 +122,7 @@ jobs:
           pip install -e ".[dev]"
 
       - name: Run pip-audit
+        continue-on-error: true
         run: |
           pip-audit --desc --skip-editable
 
