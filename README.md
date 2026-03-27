@@ -169,6 +169,13 @@ code-covered coverage.json --source-root ./src
 
 # JSON output for CI pipelines
 code-covered coverage.json --format json
+
+# Show version
+code-covered --version
+
+# Check environment health
+code-covered --diagnose
+code-covered --diagnose-json
 ```
 
 ### Exit Codes
@@ -215,6 +222,12 @@ for s in suggestions:
     print(f"  Covers lines {s.covers_lines}")
     print(f"  Template:\n{s.code_template}")
 ```
+
+## MCP Adapter
+
+code-covered ships with an MCP tool adapter (`code_covered.gaps`) that exposes the same analysis engine to MCP hosts. The adapter accepts inline coverage JSON or an artifact reference and returns structured results with optional CI gating via the `fail_on` parameter.
+
+See `mcp.yaml` for the tool definition and schema paths.
 
 ## How It Works
 

@@ -1,0 +1,1405 @@
+{
+  "version": 1,
+  "entries": {
+    "a36b9974685f5fe2": {
+      "translation": "**未カバー部分を特定し、どのようなテストを作成すべきかを提案します。**",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "69e7fb0e08e90734": {
+      "translation": "[MCP Tool Shop](https://mcp-tool-shop.github.io/) の一部です。これは、開発者の作業を妨げない、実用的な開発ツールです。",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "120b278d99263e76": {
+      "translation": "なぜコードカバレッジが必要なのでしょうか？",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "07dd82c91358815d": {
+      "translation": "カバレッジツールは、どの行がテストされていないかを教えてくれます。`code-covered` は、*どのようなテストを作成すべきか* を教えてくれます。これは、`coverage.json` を読み込み、AST（抽象構文木）を解析してコンテキスト（例外ハンドラ、ブランチ、ループなど）を理解し、テストスイートにそのまま組み込める優先順位付けされたテストの雛形を生成します。実行時の依存関係はゼロです。標準ライブラリのみを使用します。",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "8f5aeabf30e3c733": {
+      "translation": "問題点",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "8882b8c80135914d": {
+      "translation": "カバレッジが74%。12行が未カバー。しかし、その12行は*具体的にどの行* なのでしょうか？そして、それらをカバーするテストは*どのようなもの* でしょうか？",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "f00e0578e928f5b9": {
+      "translation": "解決策",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "d88005a6cdf9c925": {
+      "translation": "インストール方法",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "d182d24c54cc50a7": {
+      "translation": "クイックスタート",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "bbe4737a1993f477": {
+      "translation": "ユーザー向け",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "8b2f93df9d102278": {
+      "translation": "開発者向け",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "fc8e4bf84165ea76": {
+      "translation": "機能",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "bd1721ca192f8532": {
+      "translation": "優先度レベル",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "409bf0b1bc3f4c14": {
+      "translation": "優先度",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "25439080411a07fc": {
+      "translation": "意味",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "124571bab09a01d7": {
+      "translation": "例",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "e56b59fc31ddd347": {
+      "translation": "例外ハンドラ、`raise` 文",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "1941eed187a87c19": {
+      "translation": "`except ValueError:` が一度もトリガーされていない",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "553737a8f9d26def": {
+      "translation": "条件分岐",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "a0c4dd4808687717": {
+      "translation": "`if x > 0:` のブランチが一度も実行されていない",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "b0ae33bdccb3db48": {
+      "translation": "関数本体、ループ",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "d81c9ea6298ea60f": {
+      "translation": "ループ本体が一度も実行されていない",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "e702b93c6456bf25": {
+      "translation": "その他の未カバーコード",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "1f6bf5d69fa38230": {
+      "translation": "モジュールレベルの文",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "e793756231f38df0": {
+      "translation": "テストテンプレート",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "10cd0dbcd1dd86ed": {
+      "translation": "各提案には、すぐに使用できるテストテンプレートが含まれています。",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "7dbbf92ae5936f40": {
+      "translation": "セットアップのヒント",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "aa1cb43503f3980c": {
+      "translation": "一般的なパターンを検出し、何を作成するかを提案します。",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "0bee860796fc5461": {
+      "translation": "CLI（コマンドラインインターフェース）リファレンス",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "2e22400e9cbba1b8": {
+      "translation": "終了コード",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "58123bdea582f8e2": {
+      "translation": "意味",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "ef8312139388f0b6": {
+      "translation": "成功（未カバー部分が見つかった、または未カバー部分がない）",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "af554915e620ff51": {
+      "translation": "エラー（ファイルが見つからない、解析エラー）",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "4a7aa9c9b7e8ae4f": {
+      "translation": "JSON出力",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "f5a6e3c8cc874939": {
+      "translation": "CI（継続的インテグレーション）との連携には、`--format json` オプションを使用します。",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "c7290eb27a3d3f9c": {
+      "translation": "Python API",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "8e261d5674803a03": {
+      "translation": "仕組み",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "03bb94b3a8d77ae2": {
+      "translation": "1. **`coverage.json` の解析:** `pytest-cov` からの JSON レポートを読み込みます。\n2. **AST 解析:** ソースファイルを解析し、コードの構造を理解します。\n3. **コンテキスト検出:** 未カバーの各ブロックが何をしているかを特定します。\n- 例外ハンドラですか？\n- 条件分岐ですか？\n- どの関数/クラスに含まれていますか？\n4. **テンプレート生成:** コンテキストに基づいて、特定のテストテンプレートを作成します。\n5. **優先順位付け:** 重要度（エラーパス > ブランチ > その他）でランク付けします。",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "08ea9dfbe36d981b": {
+      "translation": "ライセンス",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "7976744c3c268450": {
+      "translation": "MIT -- 詳細については、[LICENSE](LICENSE) を参照してください。",
+      "model": "translategemma:12b",
+      "timestamp": 1772035359455
+    },
+    "069a0bcefde29cfb": {
+      "translation": "**发现代码覆盖率的不足，并建议编写哪些测试用例。**",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "2a720bbac31c9056": {
+      "translation": "它是 [MCP Tool Shop](https://mcp-tool-shop.github.io/) 的一部分，提供实用且不干扰开发的工具。",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "3155d22a5d66f1c5": {
+      "translation": "为什么使用 `code-covered`？",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "0fa888370e860b7f": {
+      "translation": "代码覆盖率工具可以告诉你哪些行代码没有被测试。`code-covered` 告诉你*应该编写哪些测试用例*。它读取你的 `coverage.json` 文件，通过分析抽象语法树（AST）来理解代码的上下文（异常处理、分支、循环），并生成优先级排序的测试用例模板，你可以直接将其添加到你的测试套件中。它没有任何运行时依赖，只依赖标准库。",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "72ae794872b6f04b": {
+      "translation": "问题",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "02f66ca2edbb5236": {
+      "translation": "代码覆盖率达到 74%。有 12 行代码没有被覆盖。但是，是*哪 12 行*代码？以及，需要编写哪些测试用例来覆盖它们？",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "466e3a09ba65514d": {
+      "translation": "解决方案",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "108c3bdaeaac02ca": {
+      "translation": "安装",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "3e6394397900eaa1": {
+      "translation": "快速开始",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "937fc492306e66a0": {
+      "translation": "面向用户",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "b3e4d1c3cd9bac7a": {
+      "translation": "面向开发者",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "c6c20d03bfc6bd19": {
+      "translation": "特性",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "fe1916e4b0db87c3": {
+      "translation": "优先级级别",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "c3f23de9f6a5e5f5": {
+      "translation": "优先级",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "136a0ec9795a4fa7": {
+      "translation": "含义",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "fe6e44e18c2ac50a": {
+      "translation": "示例",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "2fa9cad5f78371af": {
+      "translation": "异常处理、`raise` 语句",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "13482c458d6a1336": {
+      "translation": "`except ValueError:` 从未触发",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "eb1bf743b8448702": {
+      "translation": "条件分支",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "ac0b41a329127d8d": {
+      "translation": "`if x > 0:` 分支从未被执行",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "a62dadd3aee65d5c": {
+      "translation": "函数体、循环",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "9b7bb8b9e2b56096": {
+      "translation": "循环体从未被执行",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "414fa63a40dfbfc5": {
+      "translation": "其他未覆盖的代码",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "9e4a8628a641ffe5": {
+      "translation": "模块级别的语句",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "2f780b71ee306841": {
+      "translation": "测试模板",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "c5116c7ee744dc5b": {
+      "translation": "每个建议都包含一个可以直接使用的测试模板：",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "7b502c94e3080085": {
+      "translation": "配置提示",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "887e527f1cb4963c": {
+      "translation": "它会检测常见的模式，并建议应该模拟哪些内容：",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "57f75c53a122a4bc": {
+      "translation": "命令行参考",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "7a04b47e3bc57a61": {
+      "translation": "退出码",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "d92f14b6efff6a75": {
+      "translation": "含义",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "7465525a4c89e1a5": {
+      "translation": "成功（找到未覆盖的代码或没有未覆盖的代码）",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "a787f52b6337915f": {
+      "translation": "错误（文件未找到、解析错误）",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "0040c2ab30ff4faa": {
+      "translation": "JSON 输出",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "cb5fb6630fcef3b5": {
+      "translation": "使用 `--format json` 进行 CI 集成：",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "d51a5ff269e298b0": {
+      "translation": "Python API",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "fb14752ffb561cd1": {
+      "translation": "工作原理",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "a13aa772aae16fea": {
+      "translation": "1. **解析 `coverage.json`** -- 读取 `pytest-cov` 生成的 JSON 报告。\n2. **AST 分析** -- 解析源代码文件以理解代码结构。\n3. **上下文检测** -- 识别每个未覆盖的代码块的作用：\n- 它是异常处理吗？\n- 它是条件分支吗？\n- 它位于哪个函数/类中？\n4. **模板生成** -- 根据上下文创建特定的测试模板。\n5. **优先级排序** -- 根据重要性进行排序（错误路径 > 分支 > 其他）。",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "1fb815b9a436fadb": {
+      "translation": "许可证",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "0a8cb42e552200e1": {
+      "translation": "MIT -- 详情请参见 [LICENSE](LICENSE)。",
+      "model": "translategemma:12b",
+      "timestamp": 1772035377411
+    },
+    "cc4875d327d3dda9": {
+      "translation": "**Identifique las áreas sin cobertura y sugiera qué pruebas escribir.**",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "7ecd8edabf1e199a": {
+      "translation": "Parte de [MCP Tool Shop](https://mcp-tool-shop.github.io/) – herramientas prácticas para desarrolladores que no interfieren en su trabajo.",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "3c4c85a70979bfad": {
+      "translation": "¿Por qué usar `code-covered`?",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "22966f78a39cde44": {
+      "translation": "Las herramientas de cobertura le indican *qué* líneas no están probadas. `code-covered` le indica *qué pruebas debe escribir*. Lee su archivo `coverage.json`, analiza el árbol de sintaxis (AST) para comprender el contexto (controladores de excepciones, ramas, bucles) y genera pruebas preliminares priorizadas que puede incluir directamente en su conjunto de pruebas. No tiene dependencias de tiempo de ejecución, solo utiliza la biblioteca estándar.",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "ef1994fe1152b204": {
+      "translation": "El problema",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "2bdc9add46f47072": {
+      "translation": "74% de cobertura. 12 líneas sin probar. Pero, ¿*cuáles* son esas 12 líneas? ¿Y qué pruebas las cubrirían?",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "c8b1aefed4174405": {
+      "translation": "La solución",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "c9f8b84d688aa64b": {
+      "translation": "Instalación",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "785321ff8279266b": {
+      "translation": "Inicio rápido",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "add5de01509b36aa": {
+      "translation": "Para usuarios",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "9ec3186eceaae324": {
+      "translation": "Para desarrolladores",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "422fb4b958d31758": {
+      "translation": "Características",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "7f0165cd48995236": {
+      "translation": "Niveles de prioridad",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "bb785d9b09316205": {
+      "translation": "Prioridad",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "a4aae8e95ab3b039": {
+      "translation": "Lo que significa",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "d65a2c6545cce4aa": {
+      "translation": "Ejemplo",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "db4e549b0b56a79b": {
+      "translation": "Controladores de excepciones, sentencias `raise`",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "7a28afd370d77b11": {
+      "translation": "`except ValueError:` nunca se activa",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "605e2207bee3bdf1": {
+      "translation": "Ramas condicionales",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "c96f0d8387d7caff": {
+      "translation": "La rama `if x > 0:` nunca se ejecuta",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "5e3e14490f105162": {
+      "translation": "Cuerpos de funciones, bucles",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "7fb9cbdde0c7254b": {
+      "translation": "El cuerpo del bucle nunca se ejecuta",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "511f2a4f8631cee4": {
+      "translation": "Otro código sin cubrir",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "fb7b4bb7ddf5b954": {
+      "translation": "Sentencias a nivel de módulo",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "dc2ebfe617bba072": {
+      "translation": "Plantillas de pruebas",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "f713eee053391846": {
+      "translation": "Cada sugerencia incluye una plantilla de prueba lista para usar:",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "81e09d0a7551959a": {
+      "translation": "Sugerencias de configuración",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "3d70b5c2fd5df61d": {
+      "translation": "Detecta patrones comunes y sugiere qué simular (mock):",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "cb8fca959ef231a9": {
+      "translation": "Referencia de la interfaz de línea de comandos (CLI)",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "ead6d0852bab11de": {
+      "translation": "Códigos de salida",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "a9e0b03a532423f7": {
+      "translation": "Significado",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "01c00ef51d9d7de3": {
+      "translation": "Éxito (se encontraron lagunas o no se encontraron lagunas)",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "79295ccd8424e5ad": {
+      "translation": "Error (archivo no encontrado, error de análisis)",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "15784552538025f4": {
+      "translation": "Salida JSON",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "cf766b069cb61139": {
+      "translation": "Utilice `--format json` para la integración en sistemas de integración continua (CI):",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "a2cdfccee7ac1f91": {
+      "translation": "API de Python",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "b85c1ae2a3223f6a": {
+      "translation": "Cómo funciona",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "c12d111e0f2f6b6e": {
+      "translation": "1. **Análisis de `coverage.json`**: Lee el informe JSON de `pytest-cov`.\n2. **Análisis del AST**: Analiza los archivos de código fuente para comprender la estructura del código.\n3. **Detección de contexto**: Identifica qué hace cada bloque sin cubrir:\n- ¿Es un controlador de excepciones?\n- ¿Es una rama condicional?\n- ¿En qué función/clase se encuentra?\n4. **Generación de plantillas**: Crea plantillas de prueba específicas basadas en el contexto.\n5. **Priorización**: Clasifica por importancia (rutas de error > ramas > otros).",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "9572f74b6d3f62b1": {
+      "translation": "Licencia",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "c09cb5ae7b6e642e": {
+      "translation": "MIT: consulte [LICENSE](LICENSE) para obtener más detalles.",
+      "model": "translategemma:12b",
+      "timestamp": 1772035397070
+    },
+    "f8d9a3395acf982a": {
+      "translation": "**Identifiez les lacunes en matière de couverture de code et suggérez les tests à écrire.**",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "810f6f77372e3899": {
+      "translation": "Fait partie de [MCP Tool Shop](https://mcp-tool-shop.github.io/) : des outils pratiques pour les développeurs qui ne vous gênent pas.",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "e211bbef804dec20": {
+      "translation": "Pourquoi utiliser `code-covered` ?",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "504caea7dcf7afc5": {
+      "translation": "Les outils de couverture vous indiquent *quelles* lignes ne sont pas testées. `code-covered` vous indique *quels tests écrire*. Il lit votre fichier `coverage.json`, analyse l'arbre syntaxique (AST) pour comprendre le contexte (gestionnaires d'exceptions, branches, boucles) et génère des squelettes de tests priorisés que vous pouvez directement intégrer à votre suite de tests. Aucune dépendance d'exécution, seulement la bibliothèque standard.",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "85f5b4eadbd5a11a": {
+      "translation": "Le problème",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "0c0aec4f65844337": {
+      "translation": "74 % de couverture. 12 lignes non testées. Mais *quelles* 12 lignes ? Et quels tests les couvriraient ?",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "8296047dd73d6938": {
+      "translation": "La solution",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "4077bbda21e83042": {
+      "translation": "Installation",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "caef1b750e85e405": {
+      "translation": "Démarrage rapide",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "a938288418a91f59": {
+      "translation": "Pour les utilisateurs",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "01b396eb7fad967c": {
+      "translation": "Pour les développeurs",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "9244388ee3d9cea2": {
+      "translation": "Fonctionnalités",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "368cab85b9248c6e": {
+      "translation": "Niveaux de priorité",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "7f6cef662374f28b": {
+      "translation": "Priorité",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "a9d499de19b2dacf": {
+      "translation": "Ce que cela signifie",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "21ca436804bd01b2": {
+      "translation": "Exemple",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "bf831d36647f9f0f": {
+      "translation": "Gestionnaires d'exceptions, instructions `raise`",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "a53d88b5068bd7c4": {
+      "translation": "`except ValueError:` jamais déclenché",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "5b569329eef54712": {
+      "translation": "Branches conditionnelles",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "1f2721bbe59aba36": {
+      "translation": "Branche `if x > 0:` jamais prise",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "15fd9f41bfc2e6d2": {
+      "translation": "Corps de fonction, boucles",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "865b1049273e0bd2": {
+      "translation": "Corps de boucle jamais exécuté",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "9450107a5630b81d": {
+      "translation": "Autres parties de code non couvertes",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "5dbf39cbb540cffc": {
+      "translation": "Instructions au niveau du module",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "80eac1073a80639b": {
+      "translation": "Modèles de tests",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "09c77516331e068c": {
+      "translation": "Chaque suggestion inclut un modèle de test prêt à l'emploi :",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "b70f83e5729f05a1": {
+      "translation": "Conseils de configuration",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "f7ebd9071f6c5c6d": {
+      "translation": "Détecte les schémas courants et suggère ce qu'il faut simuler (mock) :",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "dcfe029d45dc336a": {
+      "translation": "Référence de l'interface en ligne de commande (CLI)",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "ea3b5c49e509bd45": {
+      "translation": "Codes de sortie",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "785c7a450a789477": {
+      "translation": "Signification",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "684c2d9b79c3a017": {
+      "translation": "Succès (lacunes trouvées ou aucune lacune)",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "37d8850397a4220d": {
+      "translation": "Erreur (fichier non trouvé, erreur d'analyse)",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "7cdc52330c4ac100": {
+      "translation": "Sortie JSON",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "9509d5ad9d54bc9b": {
+      "translation": "Utilisez `--format json` pour l'intégration dans les systèmes d'intégration continue (CI) :",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "f3f2a3914f92bb58": {
+      "translation": "API Python",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "06cc191e2d30a1b3": {
+      "translation": "Fonctionnement",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "3e0aa7b052ae09d7": {
+      "translation": "1. **Analyse de `coverage.json`** : Lit le rapport JSON de `pytest-cov`.\n2. **Analyse de l'AST** : Analyse les fichiers sources pour comprendre la structure du code.\n3. **Détection du contexte** : Identifie ce que chaque bloc non couvert fait :\n- Est-ce un gestionnaire d'exceptions ?\n- Est-ce une branche conditionnelle ?\n- À quelle fonction/classe appartient-il ?\n4. **Génération de modèles** : Crée des modèles de tests spécifiques en fonction du contexte.\n5. **Priorisation** : Classe par importance (chemins d'erreur > branches > autres).",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "0174ffc9d6992c72": {
+      "translation": "Licence",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "98df2d2286675ac1": {
+      "translation": "MIT : voir [LICENSE](LICENSE) pour plus de détails.",
+      "model": "translategemma:12b",
+      "timestamp": 1772035417454
+    },
+    "9d430fad85c0eae8": {
+      "translation": "**उन क्षेत्रों की पहचान करें जहां कवरेज की कमी है, और यह सुझाव दें कि कौन से परीक्षण लिखने चाहिए।**",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "cc50430eeb7b7bb0": {
+      "translation": "[MCP Tool Shop](https://mcp-tool-shop.github.io/) का हिस्सा -- व्यावहारिक डेवलपर उपकरण जो आपके काम में बाधा नहीं डालते।",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "e9f9260820673d6c": {
+      "translation": "'कोड-कवर्ड' क्यों?",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "8a1d914c6f76e86b": {
+      "translation": "कवरेज उपकरण आपको बताते हैं कि *कौन सी* पंक्तियाँ परीक्षण नहीं की गई हैं। `कोड-कवर्ड` आपको बताता है कि *कौन से परीक्षण लिखने चाहिए*। यह आपकी `coverage.json` फ़ाइल को पढ़ता है, संदर्भ को समझने के लिए एब्स्ट्रैक्ट सिंटैक्स ट्री (AST) का विश्लेषण करता है (अपवाद हैंडलर, शाखाएँ, लूप), और प्राथमिकता वाले परीक्षण टेम्पलेट उत्पन्न करता है जिन्हें आप सीधे अपने परीक्षण सूट में डाल सकते हैं। इसमें कोई रनटाइम निर्भरता नहीं है - केवल स्टैंडर्ड लाइब्रेरी।",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "2af921883fbf3f72": {
+      "translation": "समस्या",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "d58b32b530c8c84a": {
+      "translation": "74% कवरेज। 12 पंक्तियाँ छूटी हुई। लेकिन *कौन सी* 12 पंक्तियाँ? और उन्हें कवर करने के लिए कौन से परीक्षण होंगे?",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "d66738affddaebeb": {
+      "translation": "समाधान",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "ed383afd27175535": {
+      "translation": "स्थापना",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "abb619d8b0588257": {
+      "translation": "त्वरित शुरुआत",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "82138d5b3507eae9": {
+      "translation": "उपयोगकर्ताओं के लिए",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "9a6aa12038e67951": {
+      "translation": "डेवलपर्स के लिए",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "d0bfd0df3ecd0d7f": {
+      "translation": "विशेषताएं",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "03c8d8662847ede1": {
+      "translation": "प्राथमिकता स्तर",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "3df34290fcc2e92b": {
+      "translation": "प्राथमिकता",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "e374677868eb6cdf": {
+      "translation": "इसका क्या मतलब है",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "e4094ba6aa840bc5": {
+      "translation": "उदाहरण",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "6a9290993b728576": {
+      "translation": "अपवाद हैंडलर, 'raise' स्टेटमेंट",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "b3c51b7132a886a0": {
+      "translation": "`except ValueError:` कभी ट्रिगर नहीं हुआ",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "744236d95851d2a5": {
+      "translation": "शर्तिया शाखाएँ",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "eb598ed3814eb7ed": {
+      "translation": "`if x > 0:` शाखा कभी नहीं ली गई",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "e3ee627b43d1617c": {
+      "translation": "फ़ंक्शन बॉडी, लूप",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "da676181ffffcade": {
+      "translation": "लूप बॉडी कभी नहीं चला",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "370ad385831a8912": {
+      "translation": "अन्य बिना कवर किए गए कोड",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "6dd303b64f67645e": {
+      "translation": "मॉड्यूल-स्तरीय स्टेटमेंट",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "50b8f260b3cb6ebe": {
+      "translation": "परीक्षण टेम्पलेट",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "58548a04f56194f0": {
+      "translation": "प्रत्येक सुझाव में एक तैयार-से-उपयोग परीक्षण टेम्पलेट शामिल है:",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "0d440ff5de893cdb": {
+      "translation": "सेटअप संकेत",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "560fa1df49963246": {
+      "translation": "यह सामान्य पैटर्न का पता लगाता है और यह सुझाव देता है कि क्या मॉक करना है:",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "7b1826aed8f8aef2": {
+      "translation": "सीएलआई संदर्भ",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "92abed1747d9195a": {
+      "translation": "एग्जिट कोड",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "8e6cc4fa69314024": {
+      "translation": "अर्थ",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "fb11252cd4f466ef": {
+      "translation": "सफलता (गैप पाए गए या कोई गैप नहीं)",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "53d337d1cef4b438": {
+      "translation": "त्रुटि (फ़ाइल नहीं मिली, पार्सिंग त्रुटि)",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "a4fdc2189e7c298e": {
+      "translation": "JSON आउटपुट",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "f9fc7d2f71c00e77": {
+      "translation": "सीआई एकीकरण के लिए `--format json` का उपयोग करें:",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "49426304b377f228": {
+      "translation": "पायथन एपीआई",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "8fea77af1ed0a2e1": {
+      "translation": "यह कैसे काम करता है",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "2a0b0c91f09186af": {
+      "translation": "1. **`coverage.json` को पार्स करें** -- `pytest-cov` से JSON रिपोर्ट को पढ़ें।\n2. **एएसटी विश्लेषण** -- कोड संरचना को समझने के लिए स्रोत फ़ाइलों का विश्लेषण करें।\n3. **संदर्भ का पता लगाना** -- पहचानें कि प्रत्येक बिना कवर किए गए ब्लॉक का क्या कार्य है:\n- क्या यह एक अपवाद हैंडलर है?\n- क्या यह एक शर्तिया शाखा है?\n- यह किस फ़ंक्शन/क्लास में है?\n4. **टेम्पलेट पीढ़ी** -- संदर्भ के आधार पर विशिष्ट परीक्षण टेम्पलेट बनाएं।\n5. **प्राथमिकता** -- महत्व के अनुसार रैंक करें (त्रुटि पथ > शाखाएँ > अन्य)।",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "cfbc372f8058f151": {
+      "translation": "लाइसेंस",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "45391ef45cce7787": {
+      "translation": "एमआईटी -- विवरण के लिए [लाइसेंस](LICENSE) देखें।",
+      "model": "translategemma:12b",
+      "timestamp": 1772035438661
+    },
+    "07fefe5b964033b0": {
+      "translation": "**Individua le aree non coperte dal testing e suggerisci quali test scrivere.**",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "65d6912571770d74": {
+      "translation": "Parte di [MCP Tool Shop](https://mcp-tool-shop.github.io/) -- strumenti pratici per sviluppatori che non interferiscono con il tuo lavoro.",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "021d10df40706451": {
+      "translation": "Perché usare `code-covered`?",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "776c54055b5ee9a0": {
+      "translation": "Gli strumenti di copertura ti dicono *quali* righe di codice non sono state testate. `code-covered` ti dice *quali test scrivere*. Legge il tuo file `coverage.json`, analizza l'albero sintattico (AST) per comprendere il contesto (gestori di eccezioni, rami, cicli) e genera test di esempio prioritari che puoi inserire direttamente nella tua suite di test. Nessuna dipendenza a runtime, solo librerie standard.",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "d6cb6f19ff88b8d6": {
+      "translation": "Il Problema",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "4186dee331b2511d": {
+      "translation": "74% di copertura. 12 righe non testate. Ma *quali* 12 righe? E quali test le coprirebbero?",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "a24b7af47ec3e40f": {
+      "translation": "La Soluzione",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "7b0c73c0f5463dff": {
+      "translation": "Installazione",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "d7e9780fb2074bec": {
+      "translation": "Guida Rapida",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "80c76435fa4d3ced": {
+      "translation": "Per Utenti",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "ebac442e4fb6db06": {
+      "translation": "Per Sviluppatori",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "bd2eda68a403934d": {
+      "translation": "Funzionalità",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "aea2f669e70215d1": {
+      "translation": "Livelli di Priorità",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "86d43b5179233587": {
+      "translation": "Priorità",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "72743a71722f82dd": {
+      "translation": "Cosa significa",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "f13f49bfe76a6a96": {
+      "translation": "Esempio",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "dfb7b9439b18a719": {
+      "translation": "Gestori di eccezioni, istruzioni `raise`",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "d1cd0b37a3dcc45c": {
+      "translation": "`except ValueError:` mai attivato",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "bdf5e9f0885d628f": {
+      "translation": "Rami condizionali",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "b22833d4cf540fa4": {
+      "translation": "`if x > 0:` ramo mai eseguito",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "d88a4d079c38ba94": {
+      "translation": "Corpi di funzione, cicli",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "e54bfcfaadd69425": {
+      "translation": "Corpo del ciclo mai eseguito",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "107a0d3b2ba4e75f": {
+      "translation": "Altro codice non coperto",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "567db7f8b0649686": {
+      "translation": "Istruzioni a livello di modulo",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "9c8cc38c81cc9ae4": {
+      "translation": "Modelli di Test",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "99ec8dbd00e97204": {
+      "translation": "Ogni suggerimento include un modello di test pronto all'uso:",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "1039609a5b3a1ed1": {
+      "translation": "Suggerimenti per la Configurazione",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "1df4857b899308b9": {
+      "translation": "Rileva schemi comuni e suggerisce cosa simulare (mock):",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "7c7e200097ac45dd": {
+      "translation": "Riferimento alla CLI",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "84b4e4ea8e580337": {
+      "translation": "Codici di Uscita",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "69fb964a4ef1e52e": {
+      "translation": "Significato",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "45b90b2c2c0483ea": {
+      "translation": "Successo (lacune trovate o nessuna lacuna)",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "b82c541fc7229a30": {
+      "translation": "Errore (file non trovato, errore di analisi)",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "0ca104477f748ddd": {
+      "translation": "Output JSON",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "f7cc7a6236dd2b3f": {
+      "translation": "Usa `--format json` per l'integrazione con i sistemi di Continuous Integration (CI):",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "130db2c930f35a20": {
+      "translation": "API Python",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "7fde6e9735784ed4": {
+      "translation": "Come Funziona",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "3b3f35189b1885f7": {
+      "translation": "1. **Analisi di `coverage.json`** -- Legge il report JSON da `pytest-cov`.\n2. **Analisi dell'AST** -- Analizza i file sorgente per comprendere la struttura del codice.\n3. **Rilevamento del Contesto** -- Identifica cosa fa ogni blocco di codice non testato:\n- È un gestore di eccezioni?\n- È un ramo condizionale?\n- A quale funzione/classe appartiene?\n4. **Generazione di Modelli** -- Crea modelli di test specifici in base al contesto.\n5. **Prioritizzazione** -- Ordina in base all'importanza (percorsi di errore > rami > altro).",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "0870aa1dcfea97cc": {
+      "translation": "Licenza",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "e9167fd22fc024c3": {
+      "translation": "MIT -- consulta [LICENSE](LICENSE) per i dettagli.",
+      "model": "translategemma:12b",
+      "timestamp": 1772035459884
+    },
+    "e8ec835b48565ab0": {
+      "translation": "**Identifique lacunas na cobertura de testes e sugira quais testes devem ser escritos.**",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "022b9e132bbe0481": {
+      "translation": "Parte do [MCP Tool Shop](https://mcp-tool-shop.github.io/) -- ferramentas práticas para desenvolvedores que não atrapalham o seu fluxo de trabalho.",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "9eebaa52745793c9": {
+      "translation": "Por que usar `code-covered`?",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "edbb370801ebe1c0": {
+      "translation": "Ferramentas de cobertura mostram quais linhas de código não foram testadas. `code-covered` informa *quais testes você deve escrever*. Ele lê seu arquivo `coverage.json`, analisa a estrutura da árvore sintática (AST) para entender o contexto (tratadores de exceção, ramificações, loops) e gera modelos de testes priorizados que você pode inserir diretamente em sua suíte de testes. Não possui dependências de tempo de execução – apenas a biblioteca padrão.",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "e13c4692f66b60b5": {
+      "translation": "O Problema",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "36acdda7c1a7bedd": {
+      "translation": "74% de cobertura. 12 linhas não testadas. Mas *quais* 12 linhas? E quais testes cobririam essas linhas?",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "9ee9c54865babd8b": {
+      "translation": "A Solução",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "eb9ad24c5bdd2790": {
+      "translation": "Instalação",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "c88bcdb0dd505b6b": {
+      "translation": "Início Rápido",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "d31ec56acee54bae": {
+      "translation": "Para Usuários",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "96647a01aaa8139c": {
+      "translation": "Para Desenvolvedores",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "6fbe4c0ef1edf268": {
+      "translation": "Recursos",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "baa4dfa6b0d2f4b6": {
+      "translation": "Níveis de Prioridade",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "f565443d4d3b288e": {
+      "translation": "Prioridade",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "2d18f7aff8eaba0a": {
+      "translation": "O que isso significa",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "65ccc2895f6d59e1": {
+      "translation": "Exemplo",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "d803cc15547e61b9": {
+      "translation": "Tratadores de exceção, declarações `raise`",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "afba9329369f0e07": {
+      "translation": "`except ValueError:` nunca acionado",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "2ff6a5c90ba4f013": {
+      "translation": "Ramificações condicionais",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "5951981d6b8f06ce": {
+      "translation": "`if x > 0:` ramificação nunca executada",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "0db28923ac6f2d92": {
+      "translation": "Corpos de funções, loops",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "5ac627ac09a8d594": {
+      "translation": "Corpo do loop nunca executado",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "68d73f4e1b23ff1f": {
+      "translation": "Outro código não coberto",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "70a44ca599847dbd": {
+      "translation": "Declarações de nível de módulo",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "c1f6aaf3cc3bb759": {
+      "translation": "Modelos de Teste",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "8630b173b88ad942": {
+      "translation": "Cada sugestão inclui um modelo de teste pronto para uso:",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "197ae31c7032e0c8": {
+      "translation": "Dicas de Configuração",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "49c0dfa4dcf16e96": {
+      "translation": "Detecta padrões comuns e sugere o que simular (mock):",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "983e4912afb67ded": {
+      "translation": "Referência da Interface de Linha de Comando (CLI)",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "18d31170dcf1f21d": {
+      "translation": "Códigos de Saída",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "47d1e04b68b670ac": {
+      "translation": "Significado",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "f8827e8f271f79b9": {
+      "translation": "Sucesso (lacunas encontradas ou nenhuma lacuna)",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "a25bb685b4166df7": {
+      "translation": "Erro (arquivo não encontrado, erro de análise)",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "f9eccbce3e76b785": {
+      "translation": "Saída JSON",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "941ca36daa55af53": {
+      "translation": "Use `--format json` para integração com sistemas de CI:",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "e09dd1d8649f5648": {
+      "translation": "API Python",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "dd16900fc4c9dbb4": {
+      "translation": "Como Funciona",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "71c7c5e08ac956d4": {
+      "translation": "1. **Análise de `coverage.json`** -- Lê o relatório JSON do `pytest-cov`.\n2. **Análise da AST** -- Analisa os arquivos de código-fonte para entender a estrutura do código.\n3. **Detecção de Contexto** -- Identifica o que cada bloco não coberto faz:\n- É um tratador de exceção?\n- É uma ramificação condicional?\n- Em qual função/classe está?\n4. **Geração de Modelos** -- Cria modelos de teste específicos com base no contexto.\n5. **Priorização** -- Classifica por importância (caminhos de erro > ramificações > outros).",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "2aca9b0e72841008": {
+      "translation": "Licença",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    },
+    "54b45ce1006a5c14": {
+      "translation": "MIT -- veja [LICENSE](LICENSE) para detalhes.",
+      "model": "translategemma:12b",
+      "timestamp": 1772035480182
+    }
+  }
+}

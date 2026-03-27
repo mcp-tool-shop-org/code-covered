@@ -13,5 +13,6 @@ Welcome to the code-covered handbook.
 - **[How It Works](/code-covered/handbook/how-it-works/)** — The problem and the solution
 - **[Usage](/code-covered/handbook/usage/)** — CLI commands and Python API
 - **[Reference](/code-covered/handbook/reference/)** — Full CLI and API reference
+- **[Beginners Guide](/code-covered/handbook/beginners/)** — Gentle introduction for newcomers
 
 [Back to landing page](/code-covered/)

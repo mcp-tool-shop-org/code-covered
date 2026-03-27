@@ -41,6 +41,17 @@ code-covered coverage.json --format json
 code-covered coverage.json --source-root ./src
 ```
 
+### Diagnostics
+
+```bash
+# Show installed version
+code-covered --version
+
+# Check environment health (Python, package, MCP adapter, analyzer)
+code-covered --diagnose
+code-covered --diagnose-json
+```
+
 ## Priority levels
 
 Every gap is classified before it surfaces:
@@ -109,10 +120,15 @@ Use JSON output to integrate with CI pipelines:
   "suggestions": [
     {
       "test_name": "test_validator_validate_input_handles_exception",
+      "test_file": "tests/test_validator.py",
+      "description": "In validate_input() lines 23-27 - when ValueError is raised",
       "priority": "critical",
       "covers_lines": [23, 24, 25, 26, 27],
-      "block_type": "exception_handler"
+      "block_type": "exception_handler",
+      "code_template": "def test_validator_validate_input_handles_exception(): ...",
+      "setup_hints": []
     }
-  ]
+  ],
+  "warnings": []
 }
 ```
